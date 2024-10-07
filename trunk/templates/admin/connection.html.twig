@@ -1,0 +1,18 @@
+{% extends 'admin/template.html.twig' %}
+{% block title %}Login{% endblock %}
+{% block main %}
+    <h2>Admin</h2>
+    <form action="admin.html" method="post">
+        <div>
+            <input type="text" id="login" placeholder="Email" name="login" required>
+        </div>
+        <div>
+            <input type="password" id="password" placeholder="Password" name="password" required>
+        </div>
+        <button type="submit">Connexion</button>
+    </form>
+{% endblock %}
+{% block footer %}
+    <button><a href="{{ path('create_station') }}">User</a></button>
+    <p>&copy; 2024 - Voltpoint</p>
+{% endblock %}

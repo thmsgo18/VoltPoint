@@ -1,0 +1,102 @@
+{
+  "name": "willdurand/geocoder-bundle",
+  "description": "Integration of Geocoder into Symfony",
+  "keywords": ["geocoding", "geocoder"],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "William Durand",
+      "email": "will+git@drnd.me"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "geocoder-php/plugin": "^1.5",
+    "php-http/curl-client": "^2.3",
+    "php-http/discovery": "^1.14",
+    "symfony/console": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "symfony/framework-bundle": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "symfony/options-resolver": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "willdurand/geocoder": "^4.6"
+  },
+  "require-dev": {
+    "doctrine/annotations": "^1.11.1 || ^2.0",
+    "doctrine/doctrine-bundle": "^2.3",
+    "doctrine/orm": "~2.8",
+    "fakerphp/faker": "^1.20",
+    "friendsofphp/php-cs-fixer": "^3.13",
+    "geocoder-php/algolia-places-provider": "^0.4",
+    "geocoder-php/arcgis-online-provider": "^4.4",
+    "geocoder-php/bing-maps-provider": "^4.3",
+    "geocoder-php/cache-provider": "^4.4.0",
+    "geocoder-php/chain-provider": "^4.5",
+    "geocoder-php/free-geoip-provider": "^4.5",
+    "geocoder-php/geo-plugin-provider": "^4.3",
+    "geocoder-php/geoip2-provider": "^4.3",
+    "geocoder-php/geoips-provider": "^4.0",
+    "geocoder-php/geonames-provider": "^4.4",
+    "geocoder-php/google-maps-places-provider": "^1.4",
+    "geocoder-php/google-maps-provider": "^4.7",
+    "geocoder-php/here-provider": "^0.7",
+    "geocoder-php/host-ip-provider": "^4.4",
+    "geocoder-php/ip-info-db-provider": "^4.3",
+    "geocoder-php/ip-info-provider": "^0.4",
+    "geocoder-php/ipstack-provider": "^0.4",
+    "geocoder-php/locationiq-provider": "^1.4",
+    "geocoder-php/mapbox-provider": "^1.4",
+    "geocoder-php/mapquest-provider": "^4.3",
+    "geocoder-php/mapzen-provider": "^4.0",
+    "geocoder-php/maxmind-binary-provider": "^4.3",
+    "geocoder-php/maxmind-provider": "^4.4",
+    "geocoder-php/nominatim-provider": "^5.6",
+    "geocoder-php/open-cage-provider": "^4.6",
+    "geocoder-php/openrouteservice-provider": "^1.3",
+    "geocoder-php/pickpoint-provider": "^4.3",
+    "geocoder-php/tomtom-provider": "^4.4",
+    "geocoder-php/yandex-provider": "^4.5",
+    "geoip/geoip": "~1.17",
+    "nyholm/nsa": "^1.3",
+    "nyholm/psr7": "^1.5",
+    "nyholm/symfony-bundle-test": "dev-master",
+    "php-http/mock-client": "^1.6",
+    "php-http/message": "^1.13",
+    "phpstan/phpstan": "^1.9.2",
+    "psr/http-client": "^1.0",
+    "symfony/cache": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "symfony/config": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "symfony/phpunit-bridge": "^5.2 || ^6.0 || ^7.0",
+    "symfony/validator": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "symfony/yaml": "^4.4 || ^5.0 || ^6.0 || ^7.0"
+  },
+  "conflict": {
+    "geocoder-php/nominatim-provider": "<5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bazinga\\GeocoderBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bazinga\\GeocoderBundle\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/simple-phpunit --testsuite main"
+  },
+  "config": {
+    "allow-plugins": {
+      "symfony/flex": true,
+      "php-http/discovery": false
+    },
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "5.0-dev"
+    }
+  }
+}

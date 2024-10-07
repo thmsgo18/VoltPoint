@@ -1,0 +1,147 @@
+header, main, footer{
+    text-align: center;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, h2{
+    font-weight: 100;
+}
+h1{
+    font-size: 2.5rem;
+}
+h2.titre-station{text-align: left;}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+main {
+    flex: 1;
+}
+button {
+    background: #1CB1A3;
+    color: #111111;
+    border: unset;
+    padding: 9px;
+    border-radius: 20px;
+    min-width: 100px;
+}
+input{
+    background-color: #BBF6F2;
+    color: black;
+    border: unset;
+    padding: 9px;
+    border-radius: 20px;
+    min-width: 200px;
+}
+label{
+    display: block;
+}
+button#form_save {
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+    flex:1;
+    height: auto;
+    border: 2px  solid black;
+    border-right: unset;
+    border-left: unset;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1;
+    padding: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu {
+    border-right: 2px solid black;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu li > *{
+     padding: 10px;
+     min-width: 100px;
+    display: block;
+ }
+.menu li{
+    border-bottom: 1px solid black;
+}
+@media screen and (min-width: 600px) {
+    .menu li >*{
+        padding:20px;
+        min-width: 200px;
+    }
+}
+
+li a {
+    color: black;
+    text-decoration-line: unset;
+}
+li.menu-title {
+    background-color: #939292;
+}
+
+table, th, td {
+    background-color: #c5c5c5;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0 5px;
+}
+
+table {
+    margin: auto;
+}
+
+.header-mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-mid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.popup {
+    background: black;
+    position: fixed;
+    padding: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 7px 7px 8px -5px black;
+}
+.popup-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}

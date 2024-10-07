@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Not Found</title>
+    </head>
+    <body>
+
+    {% if station is not null %}
+        <p> {{ station.id }}</p>
+        <p> {{ station.name }}</p>
+    {% else %}
+        <p> la station n'existe pas </p>
+    {% endif %}
+
+    </body>
+</html>

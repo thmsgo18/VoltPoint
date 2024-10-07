@@ -1,0 +1,13 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Profil{% endblock %}
+{% block main %}
+    <main>
+        <div>
+            <h2></h2>
+            <p>
+                {{ user.email }}
+            </p>
+            <a href="{{ path('app_logout') }}"><button>Logout</button></a>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <div class="panel panel-default {{ settings.class }}">
+        {% if settings.title is not empty %}
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    {% if settings.icon %}
+                        <i class="{{ settings.icon }}" aria-hidden="true"></i>
+                    {% endif %}
+                    {% if settings.translation_domain %}
+                        {{ settings.title|trans({}, settings.translation_domain) }}
+                    {% else %}
+                        {{ settings.title }}
+                    {% endif %}
+                </h4>
+            </div>
+        {% endif %}
+
+        <div class="panel-body">
+            {{ block('map_wrapper') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block map_wrapper %}
+    {% if settings.service == 'googlemaps' %}
+        {{ nucleos_maps_googlemap(coordinates[0], coordinates[1], {
+            title: settings.marker_title,
+            height: settings.height
+        }) }}
+    {% elseif settings.service == 'openstreetmap' %}
+        {{ nucleos_maps_openstreetmap(coordinates[0], coordinates[1], {
+            title: settings.marker_title,
+            height: settings.height
+        }) }}
+    {% endif %}
+{% endblock %}

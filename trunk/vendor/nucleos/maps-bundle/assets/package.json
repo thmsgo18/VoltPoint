@@ -1,0 +1,78 @@
+{
+    "name": "@nucleos/maps-bundle",
+    "license": "MIT",
+    "version": "1.0.0",
+    "homepage": "https://nucleos.rocks",
+    "author": "Christian Gripp <mail@core23.de>",
+    "symfony": {
+        "controllers": {
+            "openstreetmap": {
+                "main": "dist/openstreetmap_controller.js",
+                "webpackMode": "lazy",
+                "fetch": "lazy",
+                "enabled": true,
+                "autoimport": {
+                    "@nucleos/maps-bundle/dist/openstreetmap.css": true
+                }
+            },
+            "googlemaps": {
+                "main": "dist/googlemaps_controller.js",
+                "webpackMode": "lazy",
+                "fetch": "lazy",
+                "enabled": true,
+                "autoimport": []
+            }
+        }
+    },
+    "dependencies": {
+        "leaflet": "^1.7.1",
+        "leaflet-extra-markers": "^1.1.0"
+    },
+    "peerDependencies": {
+        "@hotwired/stimulus": "^3.0.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.20.12",
+        "@babel/eslint-parser": "^7.18.2",
+        "@babel/plugin-proposal-class-properties": "^7.16.7",
+        "@babel/plugin-transform-runtime": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@hotwired/stimulus": "^3.0.1",
+        "@size-limit/esbuild": "^9.0.0",
+        "@size-limit/preset-small-lib": "^9.0.0",
+        "@symfony/stimulus-testing": "^2.0.1",
+        "eslint": "^8.32.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jest": "^27.0.0",
+        "prettier": "^3.0.0",
+        "sass": "^1.57.1",
+        "sass-loader": "^13.2.0",
+        "size-limit": "^9.0.0"
+    },
+    "scripts": {
+        "build": "babel src -d dist && yarn sass:build",
+        "sass:build": "sass src:dist",
+        "sass:watch": "sass -w src:dist",
+        "test": "yarn build && jest",
+        "lint": "eslint src test --fix",
+        "format": "prettier {src,test}/*.js --write",
+        "check-lint": "yarn lint --no-fix",
+        "check-format": "yarn format --no-write --check",
+        "size": "size-limit"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "jsxBracketSameLine": true,
+        "singleQuote": true
+    },
+    "jest": {
+        "testRegex": "test/.*\\.test.js",
+        "setupFilesAfterEnv": [
+            "./test/setup.js"
+        ]
+    }
+}

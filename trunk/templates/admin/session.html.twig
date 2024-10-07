@@ -1,0 +1,77 @@
+{% extends 'admin/template-content.html.twig' %}
+{% block title %}Session{% endblock%}
+{% block content %}
+    <div>
+        <div class="header-mid">
+            <h2 class="titre-station">Session</h2>
+            <button onclick="openPopup()">Filtre</button>
+        </div>
+        <div class="center">
+            <table>
+                <thead>
+                <tr>
+                    <th>Session ID</th>
+                    <th>Name user</th>
+                    <th>Evse</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>Date Start</th>
+                    <th>State</th>
+                    <th>Duration</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for session in sessions %}
+                    <tr>
+                        <td>{{ session.id }}</td>
+                        <td>{{ session.user.name }} {{ session.user.lastname }}</td>
+                        <td>{{ session.evse.name }}</td>
+                        <td>{{ session.evse.station.street }}</td>
+                        <td>{{ session.evse.station.city }}</td>
+                        <td>{{ session.evse.station.longitude }}</td>
+                        <td>{{ session.evse.station.latitude }}</td>
+                        <td>{{ session.createdAt |date('d-m-y H:i', 'Europe/Paris')}}</td>
+                        {% if session.isInProgress %}
+                            <td> In Progress </td>
+                            <td> In Progress </td>
+                            <td><a href="{{ path('admin_stop_session', { 'sessionId': session.id }) }}">Stop</a></td>
+                        {% elseif session.isStopped %}
+                            <td> Finished </td>
+                            <td>{{ (session.getStopedAt.diff(session.getCreatedAt)).format("%H:%I:%S") }}</td>
+                        {% elseif session.isPaused %}
+                            <td> Paused </td>
+                            <td> In Progress </td>
+                            <td><a href="{{ path('admin_stop_session', { 'sessionId': session.id }) }}">Stop</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer-mid">
+    </div>
+    <div id="filtre_popup" class="popup" style="display: none">
+        <div class="popup-header">
+            <p>Filtre</p>
+            <span onclick="closePopup()">X</span>
+        </div>
+        <div class="popup-content">
+            {{ form(form) }}
+        </div>
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById('filtre_popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('filtre_popup').style.display = 'none';
+        }
+    </script>
+{% endblock %}
+{% block footer %}
+    <p>&copy; 2024 - Voltpoint</p>
+{% endblock %}

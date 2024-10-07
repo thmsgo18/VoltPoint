@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5cbd6a01-8cd8-49ee-9a67-ce54a91066f8" name="voltpoint">
+        <fileTransfer accessType="SFTP" host="172.27.72.40" port="22" sshConfigId="855cbbac-f855-4250-a26a-b7596b8e6a8c" sshConfig="ubuntu@172.27.72.40:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

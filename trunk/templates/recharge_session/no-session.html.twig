@@ -1,0 +1,10 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Session{% endblock %}
+{% block main %}
+    <main>
+        <h2>Aucune session de charge en cours</h2>
+        <div class="session">
+            <a href="{{ path('view_stations') }}"><button>Trouver une station</button></a>
+        </div>
+    </main>
+{% endblock %}

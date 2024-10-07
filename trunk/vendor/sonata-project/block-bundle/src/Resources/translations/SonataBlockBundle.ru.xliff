@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="sonata.block.service.container">
+        <source>sonata.block.service.container</source>
+        <target>Контейнер</target>
+      </trans-unit>
+      <trans-unit id="sonata.block.service.text">
+        <source>sonata.block.service.text</source>
+        <target>Простой текст</target>
+      </trans-unit>
+      <trans-unit id="sonata.block.service.rss">
+        <source>sonata.block.service.rss</source>
+        <target>RSS-лента</target>
+      </trans-unit>
+      <trans-unit id="sonata.block.service.menu">
+        <source>sonata.block.service.menu</source>
+        <target>Меню</target>
+      </trans-unit>
+      <trans-unit id="sonata.block.service.template">
+        <source>sonata.block.service.template</source>
+        <target>Шаблон</target>
+      </trans-unit>
+      <trans-unit id="form.label_url">
+        <source>form.label_url</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="form.label_title">
+        <source>form.label_title</source>
+        <target>Заголовок</target>
+      </trans-unit>
+      <trans-unit id="form.label_class">
+        <source>form.label_class</source>
+        <target>CSS-класс</target>
+      </trans-unit>
+      <trans-unit id="form.label_menu_name">
+        <source>form.label_menu_name</source>
+        <target>Меню</target>
+      </trans-unit>
+      <trans-unit id="form.label_safe_labels">
+        <source>form.label_safe_labels</source>
+        <target>Безопасные заголовки</target>
+      </trans-unit>
+      <trans-unit id="form.label_current_class">
+        <source>form.label_current_class</source>
+        <target>CSS-класс "текущий"</target>
+      </trans-unit>
+      <trans-unit id="form.label_first_class">
+        <source>form.label_first_class</source>
+        <target>CSS-класс "первый"</target>
+      </trans-unit>
+      <trans-unit id="form.label_last_class">
+        <source>form.label_last_class</source>
+        <target>CSS-класс "последний"</target>
+      </trans-unit>
+      <trans-unit id="form.label_menu_template">
+        <source>form.label_menu_template</source>
+        <target>Шаблон меню</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

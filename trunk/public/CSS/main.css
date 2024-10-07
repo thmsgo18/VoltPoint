@@ -1,0 +1,44 @@
+/*
+config générale de la version utilisateur, importer le template sur toutes les pages
+*/
+
+.kavoon-regular {
+    font-family: "Kavoon", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #39716C;
+}
+
+header {
+    text-align: center;
+    font-family: "Kavoon";
+    color: #54D5D0;
+    font-size: 7.5vh;
+    padding: 0.25em 0;
+}
+
+.content {
+    text-align: center;
+    font-family: "Inter";
+    align-content: center;
+    background-color: #54D5D0;
+    height: 100vh;
+}
+
+table {
+    #background-color: #529c96;
+    padding: 10px 0;
+    border-radius: 10px;
+    width: 95vw;
+}
+
+th, td {
+    border-bottom: 1px solid black; /*#54D5D0;*/
+    border-width: ;
+    padding: 10px;
+}

@@ -1,0 +1,53 @@
+{% extends 'admin/template-content.html.twig' %}
+{% block title %}EVSE{% endblock%}
+{% block content %}
+    <div>
+        <div class="header-mid">
+            <h2 class="titre-station">Station : {{ station.name }} || located at : {{ station.street }} {{ station.postal }}</h2>
+            <a href="{{ path('admin_view_stations') }}">
+                <button class="btn-filtre">Return to Stations</button>
+            </a>
+        </div>
+        <div class="center">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name Station</th>
+                    <th>city</th>
+                    <th>Disponibility</th>
+                    <th>Connector 1</th>
+                    <th>Connector 2</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for evse in evses %}
+                    <tr>
+                        <td>{{ evse.name }}</td>
+                        <td>{{ station.city }}</td>
+                        <td>{{ evse.disponibility }}</td>
+                        {% if evse.connector1 == null %}
+                            <td>No coonector</td>
+                        {% else %}
+                            <td>{{ evse.connector1 }}</td>
+                        {% endif %}
+                        {% if evse.connector2 == null %}
+                            <td>No connector</td>
+                        {% else %}
+                            <td>{{ evse.connector2 }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </table>
+        </div>
+    </div>
+    <div class="footer-mid">
+        <a href="{{ path('create_evse', { 'stationId': station.id }) }}">
+            <button class="btn-ajouter">New EVSE</button>
+        </a>
+    </div>
+{% endblock %}
+{% block footer %}
+    <p>&copy; 2024 - Voltpoint</p>
+{% endblock %}

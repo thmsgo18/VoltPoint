@@ -1,0 +1,62 @@
+{% extends 'user/template-content.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block main %}
+    {% set is_editing = false %} {# Déclaration de la variable is_editing #}
+
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+
+    <div>
+
+            <div>
+                <label for="lastname">Last Name</label>
+                <div class="rectangle">
+                    <input type="text" id="lastname" name="lastname" value="{{ user.getLastname() }}">
+                </div>
+
+                <label for="name">Name</label>
+                <div class="rectangle">
+                    <input type="text" id="name" name="name" value="{{ user.getName() }}">
+                </div>
+
+                <label for="email">Email</label>
+                <div class="rectangle">
+                    <input type="email" id="email" name="email" value="{{ user.getEmail() }}">
+                </div>
+
+                <label for="typePrise">Type de prise</label>
+                <div class="rectangle">
+                    <p>{{ user.getFavPrise }}</p>
+                </div>
+
+
+                <a href="{{ path('user_change_password') }}">
+                    <button>Modifier mdp</button>
+                </a>
+            </div>
+
+    </div>
+
+    <a href="{{ path('app_logout') }}">
+        <button>Déconnexion</button>
+    </a>
+
+
+    <script>
+        function logout() {
+            window.location.href = "{{ path('app_logout') }}";
+        }
+
+        function startEditing() {
+            is_editing = true;
+            document.querySelector('form').classList.add('editing'); // Ajoute une classe pour montrer le formulaire
+        }
+
+        function cancelEditing() {
+            is_editing = false;
+            document.querySelector('form').classList.remove('editing'); // Retire la classe pour cacher le formulaire
+        }
+    </script>
+{% endblock %}

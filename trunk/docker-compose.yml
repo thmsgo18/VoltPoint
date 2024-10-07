@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+    web:
+        image: nginx:stable
+        restart: unless-stopped
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
+        links:
+            - php
+        networks:
+            - default
+        ports:
+            - "80:80"
+
+    php:
+        build: ./docker/php/
+        container_name: php-nginx
+        restart: unless-stopped
+        links:
+            - db
+        networks:
+            - default
+        volumes:
+            - ./:/var/www
+        environment:
+            HOST_NAME: ${DOMAIN_NAME}
+    db:
+        image: mariadb:10.5.19
+        restart: unless-stopped
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - .db:/var/lib/mysql
+            - ./shared:/dumps
+        networks:
+            - default
+        environment:
+            MYSQL_DATABASE: 'project'
+            MYSQL_USER: 'project-user'
+            MYSQL_PASSWORD: 'root'
+            MYSQL_ROOT_PASSWORD: 'root'
+        ports:
+            - '3306:3306'
+networks:
+    default:

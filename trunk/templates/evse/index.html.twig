@@ -1,0 +1,45 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Bornes de charge{% endblock %}
+{% block main %}
+    <main class="application">
+        <div style="
+    flex: 1;
+    overflow: auto;">
+            <h1>{{ station.name }} || {{ station.street }} || Prix :{{ station.prix }}</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Disponibilité</th>
+                    <th scope="col">Start</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for evse in evses %}
+                    <tr>
+                        <td>{{ evse.name }}</td>
+                        <td>{{ evse.disponibility }}</td>
+                        {% if evse.isDisponibility %}
+                            <td><a href="{{ path('run_session', {'evseId': evse.id}) }}"><button>Démarrer</button></a></td>
+                        {% else %}
+                            <td> No </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div style="
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 2px solid black;
+">
+            <a href="{{ path('view_stations') }}">
+                <button>Retour à la liste</button>
+            </a>
+        </div>
+    </main>
+{% endblock %}

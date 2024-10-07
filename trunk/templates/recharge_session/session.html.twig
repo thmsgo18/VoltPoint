@@ -1,0 +1,24 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Session{% endblock %}
+{% block main %}
+    <main>
+        <h2>Session de charge</h2>
+        <p>
+            {{ session.evse.name }} || {{ session.evse.station.name }}
+        </p>
+        <div class="session">
+            <progress class="bar_item" value="{{ battery_level }}" max="100"></progress>
+            <p>{{ battery_level }}%</p>
+
+            <p>{{ session.status | trans }}</p>
+
+            {% if session.isInProgress %}
+                <a href="{{ path('pause_session', {'sessionId': session.getId}) }}"><button>Pause</button></a>
+            {% elseif session.IsPaused %}
+                <a href="{{ path('resume_session', {'sessionId': session.getId}) }}"><button>Resume</button></a>
+            {% endif %}
+            <a href="{{ path('stop_session', {'sessionId': session.getId}) }}"><button>Stop</button></a>
+        </div>
+
+    </main>
+{% endblock %}

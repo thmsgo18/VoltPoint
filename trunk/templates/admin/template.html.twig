@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('CSS/admin_style.css') }}">
+    <title>{% block title %}VoltPoint{% endblock%}</title>
+</head>
+<body>
+<header>
+    <h1>Voltpoint</h1>
+</header>
+
+<main>
+    {% block main %}ERROR{% endblock %}
+</main>
+<footer>
+    {% block footer %}
+        <p>&copy; 2024 - Voltpoint</p>
+    {% endblock %}
+</footer>
+</body>
+</html>

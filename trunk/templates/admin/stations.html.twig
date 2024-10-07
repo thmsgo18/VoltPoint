@@ -1,0 +1,66 @@
+{% extends 'admin/template-content.html.twig' %}
+{% block title %}Station{% endblock%}
+{% block content %}
+    <div>
+        <div class="header-mid">
+            <h2 class="titre-station">Station</h2>
+            <button class="btn-filtre" onclick="openPopup()">Filtre</button>
+        </div>
+        <div class="center">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Prix</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>EVSE</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for station in stations %}
+                    <tr>
+                        <td><a href="{{ path('admin_info_station', { 'stationId': station.id }) }}">{{ station.id }}</a></td>
+                        <td>{{ station.name }}</td>
+                        <td>{{ station.street }}</td>
+                        <td>{{ station.city }}</td>
+                        <td>{{ station.prix }}</td>
+                        <td>{{ station.longitude }}</td>
+                        <td>{{ station.latitude }}</td>
+                        <td>{{ station.evses.count }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </table>
+        </div>
+    </div>
+    <div class="footer-mid">
+        <a href="{{ path('create_station') }}">
+        <button class="btn-ajouter">New Stations</button>
+        </a>
+    </div>
+    <div id="filtre_popup" class="popup" style="display: none">
+        <div class="popup-header">
+            <p>Filtre</p>
+            <span onclick="closePopup()">X</span>
+        </div>
+        <div class="popup-content">
+            {{ form(form) }}
+        </div>
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById('filtre_popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('filtre_popup').style.display = 'none';
+        }
+    </script>
+{% endblock %}
+{% block footer %}
+<p>&copy; 2024 - Voltpoint</p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'admin/template-content.html.twig' %}
+{% block title %}Ajout d'un EVSE{% endblock %}
+{% block content %}
+    <div class="header-mid">
+        <h2 class="titre-station">Station</h2>
+        <a href="{{ path('admin_view_stations') }}">
+            <button class="btn-filtre">Annuler</button>
+        </a>
+    </div>
+    {{ form(form) }}
+    <div class="footer-mid">
+    </div>
+{% endblock %}

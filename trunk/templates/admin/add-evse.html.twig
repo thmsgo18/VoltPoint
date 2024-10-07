@@ -1,0 +1,10 @@
+{% extends 'admin/template.html.twig' %}
+
+{% block title %}EVSE ajouter !{% endblock %}
+
+{% block  main %}
+    <h1>evse {{ evseId }} was added </h1>
+    <a href="{{ path('create_evse', { stationId }) }}"><button>Ajouter EVSE</button></a>
+    <br>
+    <a href="{{ path('admin_view_stations') }}"><button class="btn-filtre">Retour à la liste</button></a>
+{% endblock %}

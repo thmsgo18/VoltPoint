@@ -1,0 +1,10 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	bootstrapFiles:
+		- vendor/bin/.phpunit/phpunit/vendor/autoload.php
+	paths:
+		- src/
+		#- tests/
+	level: 9

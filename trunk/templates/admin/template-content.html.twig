@@ -1,0 +1,19 @@
+{% extends 'admin/template.html.twig' %}
+{% block main %}
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li class="menu-title"><div>Menu</div></li>
+                <li><a href="{{ path('admin_view_stations') }}">Station</a></li>
+                <li><a href="{{ path('admin_recharge_session') }}">Session</a></li>
+                <li><a href="{{ path('admin_view_user') }}">List User</a></li>
+                <li><a href="{{ path('view_stations') }}">User View</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+

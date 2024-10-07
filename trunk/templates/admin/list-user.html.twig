@@ -1,0 +1,36 @@
+{% extends 'admin/template-content.html.twig' %}
+{% block title %}List User{% endblock%}
+{% block content %}
+    <div>
+        <div class="header-mid">
+            <h2 class="titre-user">List-User</h2>
+        </div>
+        <div class="center">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Last name</th>
+                    <th>Favorite connector</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.favPrise }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <p>&copy; 2024 - Voltpoint</p>
+{% endblock %}

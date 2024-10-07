@@ -1,0 +1,64 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Stations de charge{% endblock %}
+{% block main %}
+    <div class="application" >
+        <div style="
+    flex: 1;
+    overflow: auto;
+
+">
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                    <th>Dispo</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for station in stations %}
+                    <tr>
+                        <td><a href="{{ path('info_station', { 'stationId': station.id }) }}">{{ station.name }}</a></td>
+                        <td>{{ station.street }}</td>
+                        <td>{{ station.city }}</td>
+                        <td>{{ station.hasDispo() }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div style="
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 2px solid black;
+">
+            <a href="{{ path('view_map') }}">
+                <button>Map</button>
+            </a>
+
+            <button onclick="openPopup()">Filtre</button>
+        </div>
+
+    </div>
+    <div id="filtre_popup" class="popup" style="display: none">
+        <div class="popup-header">
+            <p>Filtre</p>
+            <span onclick="closePopup()">X</span>
+        </div>
+        <div class="popup-content">
+            {{ form(form) }}
+        </div>
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById('filtre_popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('filtre_popup').style.display = 'none';
+        }
+    </script>
+{% endblock %}

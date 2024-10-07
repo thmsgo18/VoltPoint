@@ -1,0 +1,7 @@
+{% extends 'user/template-content.html.twig' %}
+{% block title %}Filtre{% endblock %}
+{% block main %}
+    <h1>Filtre</h1>
+    {{ form(form) }}
+    <a href="{{ path('view_stations') }}"><button class="btn-filtre">Annuler</button></a>
+{% endblock %}
