@@ -4,7 +4,7 @@ Bienvenue sur le dépôt GitHub du projet **VoltPoint**.
 
 ## Description
 
-Ce projet vise à Localisé des bornes de recharge éléctrique pour voiture éléctrique. Pour plus de détails sur le fonctionnement, l'architecture et les objectifs du projet, vous pouvez consulter la présentation du projet disponible dans le fichier **Présentation.pdf**.
+Ce projet vise à Localiser des bornes de recharge éléctrique pour voiture éléctrique. Pour plus de détails sur le fonctionnement, l'architecture et les objectifs du projet, vous pouvez consulter la présentation du projet disponible dans le fichier **Présentation.pdf**.
 
 ## Prérequis
 
