@@ -1,0 +1,66 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> Database ###
+/.db/
+.db/
+*.sql
+*.sqlite
+*.db
+
+###> IDE ###
+/.idea/
+.idea/
+/.vscode/
+.vscode/
+*.swp
+*.swo
+*~
+
+###> OS Files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.bak
+
+###> Logs ###
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+###> Node ###
+node_modules/
+npm-debug.log
+yarn-error.log
+
+###> Composer ###
+/vendor/
+composer.phar
+composer.lock
+
+###> Environment ###
+.env.local
+.env.*.local
+.env.test.local
