@@ -16,7 +16,7 @@
 
 ## Project Presentation
 
-[![VoltPoint Presentation](https://img.youtube.com/vi/RtGMPg_iEkQ/maxresdefault.jpg)](https://youtu.be/RtGMPg_iEkQ?si=l-ZTQJDEVgCuZzK2)
+[![VoltPoint demo](voltpoint_demo.gif)](https://youtu.be/RtGMPg_iEkQ)
 
 *Click on the thumbnail to watch the project presentation on YouTube*
 
