@@ -1,0 +1,16 @@
+name: Repovate
+
+# Phase 1 minimal test: manual trigger only, onboarding step only.
+# Calls the reusable workflow in https://github.com/thmsgo18/Repovate.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  onboard:
+    uses: thmsgo18/Repovate/.github/workflows/onboard.yml@main
+    secrets:
+      anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
