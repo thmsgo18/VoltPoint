@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-07-24T22:37:16.420Z",
+  "agent_version": "71c38320c799c9bf7da8e76ed32070cf003e1a6b",
+  "languages": [
+    "php",
+    "twig",
+    "css"
+  ],
+  "frameworks": [
+    "symfony",
+    "doctrine-orm"
+  ],
+  "architecture_summary": "VoltPoint is a Symfony 7 MVC web application for locating and managing electric vehicle charging stations. Requests enter through public/index.php, which boots src/Kernel.php (a MicroKernelTrait-based kernel); routing is attribute-based and auto-discovered from src/Controller (config/routes.yaml). Controllers under src/Controller (public/user-facing) and src/Controller/Admin (ROLE_ADMIN-gated) use constructor-injected Doctrine repositories (src/Repository) to load Entities (src/Entity: User, Station, Evse, Connector, RechargeSession) and render Twig templates from templates/. Symfony Forms (src/Form) and small Data DTOs (src/Data, e.g. UserFilter) back filterable list views (stations, sessions, users). Authentication is form-login based via src/Security/UserAuthenticator with role-based access control defined in config/packages/security.yaml (ROLE_USER for /stations, /profile, /session; ROLE_ADMIN for /admin). Persistence is MariaDB via Doctrine ORM/DBAL with migrations in migrations/, and a couple of console commands (src/Command) exist for admin/connector bootstrap. The app is containerized with Docker Compose (PHP-FPM/Nginx/MariaDB, see docker/ and docker-compose.yml).",
+  "entry_points": [
+    "public/index.php",
+    "src/Kernel.php",
+    "config/routes.yaml",
+    "config/bundles.php",
+    "config/packages/security.yaml",
+    "src/Controller/StationController.php"
+  ],
+  "code_conventions": "All PHP files start with `declare(strict_types=1);` and use PSR-4 autoloading under the App\\ namespace (src/). Controllers extend AbstractController, use PHP 8 attribute routing (#[Route(...)]) with named routes in snake_case (e.g. view_stations, info_station), and receive dependencies via constructor property promotion with `private readonly` typed properties. Admin-only controllers live under src/Controller/Admin and are additionally prefixed with #[Route('/admin')]. Doctrine entities use attribute mapping (#[ORM\\Entity], #[ORM\\Column], etc.), UUID primary keys via CustomIdGenerator, and standard getter/setter methods; some entity fields mix English and French naming (e.g. `prix`, `disponibility`). Repositories extend Doctrine's ServiceEntityRepository and add custom finder methods (e.g. findByFilter, findOneStation, getAllStation). Twig templates are organized by feature folder (admin/, station/, evse/, user/, recharge_session/, registration/, security/) mirroring controller groupings, generally extending a shared template.html.twig/base.html.twig layout. Filtering UI follows a Data-object + FormType pattern (e.g. UserFilter + FilterForm).",
+  "test_suite": {
+    "present": false,
+    "framework": null,
+    "command": null,
+    "coverage_estimate": null
+  },
+  "manifests_detected": [
+    "composer.json",
+    "symfony.lock",
+    "docker-compose.yml"
+  ],
+  "last_refresh_reason": null
+}
